@@ -8,6 +8,9 @@
       "ios",
       "android"
     ],
+    "android": {
+      "package": "com.nan.citoyen"
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,7 +25,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nan.citoyen"
+    },
+    "description": "Citoyen",
+    "githubUrl": "https://github.com/rochelryu/Citoyen"
   }
 }

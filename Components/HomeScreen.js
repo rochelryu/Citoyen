@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: 17,
         color: "#00a25d",
-        marginBottom: 10
+        marginBottom: 5
     },
     trans: {
         marginRight: 10,
