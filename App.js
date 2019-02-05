@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, SafeAreaView, ScrollView, Dimensions } from 'react-native';
-import { createDrawerNavigator, DrawerItems } from 'react-navigation';
+import { StyleSheet, Text, View, ImageBackground, SafeAreaView, ScrollView, Dimensions, Image } from 'react-native';
+import { createStackNavigator, createAppContainer, createDrawerNavigator, DrawerItems } from 'react-navigation';
 import HomeScreen from './Components/HomeScreen';
-import SoumettreScreen from './Components/SoumettreScreen';
+import ListMinistere from './Components/ListMinistere';
 import SuivieScreen from './Components/SuivieScreen';
 
 export default class App extends React.Component {
@@ -17,8 +17,11 @@ export default class App extends React.Component {
 
 const CustomDrawler = (props)=>(
   <SafeAreaView style={{flex:1}}>
-    <View style={{ height: 100, backgroundColor: 'orange'}}>
-      <Text style={styles.padL}> Menu </Text>
+    <View style={{ height: 150, backgroundColor: 'orange', alignItems: 'center', justifyContent: 'center'}}>
+    <Image
+    style={styles.image}
+    source={require('./assets/pays.png')}
+/>
     </View>
     <ScrollView>
       <DrawerItems {...props} />
@@ -28,7 +31,7 @@ const CustomDrawler = (props)=>(
 
 const AppDrawlerNavigation = createDrawerNavigator({
   Accueil:HomeScreen,
-  Soumettre:SoumettreScreen,
+  Soumettre:ListMinistere,
   Suivre:SuivieScreen
   /*Suivre:SuivreScreen,
   Administration:AdministrationScreen,*/
@@ -47,5 +50,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginLeft: 20,
     color: "#fff"
+  },
+  image: {
   }
 })

@@ -1,7 +1,6 @@
 import React from 'react'
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
-import { Container, Header, Title, Content, Footer, FooterTab, Left, Button, Right, Body, Icon } from 'native-base';
-import modal from './modal';
+import {View, Text, StyleSheet, Image, TouchableOpacity, Modal} from 'react-native'
+import { Header, Left, Button, Right, Icon } from 'native-base';
 
 const styles = StyleSheet.create({
     container: {
@@ -55,12 +54,8 @@ class HomeScreen extends React.Component{
               <Icon name="home" style={{fontSize: 20, color: tintColor}} />
         )
     }
-    _mod(){
-        modal.setModalVisible(true)
-    }
 
     render(){
-        const {naviget} = this.props.navigation;
         return (
         <View style={styles.container}>
             <Header style={{backgroundColor:'#00a25d'}}>
@@ -81,7 +76,7 @@ class HomeScreen extends React.Component{
                 <Image style={styles.Icon} source={require('../assets/iconT.png')}/>
             </View>
             <View style={styles.trans}>
-                <TouchableOpacity onPress={()=> this._mod()}>
+                <TouchableOpacity onPress={()=> console.log("test")}>
                     <Image style={styles.img} source={require('../assets/smc.png')}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=> console.log('je clique vraiment 2')}>
