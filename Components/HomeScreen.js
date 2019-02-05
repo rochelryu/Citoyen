@@ -88,7 +88,7 @@ class HomeScreen extends React.Component{
             <TouchableOpacity onPress={()=> console.log('je clique vraiment 2')}>
                 <Image style={styles.img} source={require('../assets/x.png')}/>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=> console.log(naviget)}>
+            <TouchableOpacity onPress={()=> this.props.navigation('Suivie')}>
                 <Image style={styles.img1} source={require('../assets/suivre.png')}/>
             </TouchableOpacity>
             </View>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
-import { Container, Header, Title, Content, Footer, FooterTab, Left, Button, Right, Body, Icon } from 'native-base';
+import { Header, Left, Button, Right, Body, Icon } from 'native-base';
 import Timeline from 'react-native-timeline-listview'
 
 /*const MainNavigator = 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {StyleSheet, View, Text, FlatList} from 'react-native';
-import { Container, Header, Title, Content, Footer, FooterTab, Left, Button, Right, Body, Icon } from 'native-base';
+import { Header, Left, Button, Right, Body, Icon } from 'native-base';
 
 import ministeres from '../Helpers/MinistereData';
 import MinistereItem from './MinistereItem';

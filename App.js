@@ -1,9 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, SafeAreaView, ScrollView, Dimensions, Image } from 'react-native';
-import { createStackNavigator, createAppContainer, createDrawerNavigator, DrawerItems } from 'react-navigation';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 import HomeScreen from './Components/HomeScreen';
 import ListMinistere from './Components/ListMinistere';
 import SuivieScreen from './Components/SuivieScreen';
+import About from './Components/About';
+import AdminScreen from './Components/AdminScreen';
+import Condition from './Components/Condition';
+import Help from './Components/Help';
+import Quit from './Components/Quit';
+import Stat from './Components/Stat';
+import Numbers from './Components/Numbers';
+
 
 export default class App extends React.Component {
   render() {
@@ -32,7 +40,15 @@ const CustomDrawler = (props)=>(
 const AppDrawlerNavigation = createDrawerNavigator({
   Accueil:HomeScreen,
   Soumettre:ListMinistere,
-  Suivre:SuivieScreen
+  Suivre:SuivieScreen,
+  'Numéro de Reclamations':Numbers,
+  Administration:AdminScreen,
+  Statistique:Stat,
+  'Conditions Utlisations' :Condition,
+  'A propos': About,
+  'Besoin d\' aide': Help,
+  Quitter:Quit
+
   /*Suivre:SuivreScreen,
   Administration:AdministrationScreen,*/
 }, {
@@ -45,11 +61,6 @@ const AppDrawlerNavigation = createDrawerNavigator({
 const styles = StyleSheet.create({
   backgroundImage: {
       flex: 1
-  },
-  padL: {
-    marginTop: 50,
-    marginLeft: 20,
-    color: "#fff"
   },
   image: {
   }
