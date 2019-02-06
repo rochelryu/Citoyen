@@ -107,7 +107,7 @@ class HomeScreen extends React.Component{
                 transparent={false}
                 visible={this.state.modalVisible}
                 onRequestClose={() => {
-                Alert.alert('Choix Annuler');
+                Alert.alert('Cliquez sur OK pour fermer');
             }}>
                 <View style={{flex:1, display:'flex', justifyContent:'center', backgroundColor: 'rgba(255,255,255,0.3)'}}>
                     <View style = {styles.modal}>
