@@ -2,48 +2,7 @@
 
 const data = [
 
-    {
-        id:1,
-        title:"Ministère du budget et du portefeuille de l'Etat",
-        contact: "09483463 / 71902253",
-        lieu:"Plateau, Etat Major"
-    },
-    {
-        id:2,
-        title:"Ministère d'Etat,Ministère de la Défense",
-        contact: "09483463 / 71902253",
-        lieu:"Plateau, Etat Major"
-    },
-    {
-        id:3,
-        title:"Ministère de l'Education Nationale",
-        contact: "09483463 / 71902253",
-        lieu:"Plateau, Etat Major"
-    },
-    {
-        id:4,
-        title:"Ministère des affaires étrangères",
-        contact: "09483463 / 71902253",
-        lieu:"Plateau, Etat Major",
-    },
-    {
-        id:5,
-        title:"Ministère des Eaux et Forêts",
-        contact: "09483463 / 71902253",
-        lieu:"Plateau, Etat Major",
-    },
-    {
-        id:6,
-        title:"Ministère du Plan et du Développement",
-        contact: "09483463 / 71902253",
-        lieu:"Plateau, Etat Major",
-    },
-    {
-        id:7,
-        title:"Ministère de la Construction",
-        contact: "09483463 / 71902253",
-        lieu:"Plateau, Etat Major",
-    }
+    {"id":6,"libelle":"Garde des Sceaux, Ministère de la Justice et des Droits de l'Homme","contact":"20320758","localisation":"Plateau,Immeuble symphonie, rue du commerce"},{"id":51,"libelle":"Ministère Auprès du Président de la République","contact":"","localisation":""},{"id":2,"libelle":"Ministère d'Etat,Ministère de la Défense","contact":"20212674","localisation":"Plateau,  Etat Major"},{"id":10,"libelle":"Ministère de l'Agriculture et du Développement Rural","contact":"20214238/20228135","localisation":"Plateau, Immeuble CAISTAB"},{"id":29,"libelle":"Ministère de l'Artisanat","contact":"","localisation":"Plateau, postel 2001,9eme étage"},{"id":20,"libelle":"Ministère de l'Assainissement et de la Salubrité","contact":"20211856/20220701","localisation":"Plateau, Cité Administrative, Tour D , 10èm"},{"id":15,"libelle":"Ministère de l'Economie et des Finances","contact":"20302525/ 20305091","localisation":"Plateau,  CIAM, 18èmè etage"},{"id":30,"libelle":"Ministère de l'Economie Numérique et de la Poste","contact":"20347340/20347358","localisation":"Plateau, Postel 2001"},{"id":5,"libelle":"Ministère de l'Education Nationale","contact":"20210534/ 20210275","localisation":"Plateau, Cité administrative, Tour D, 28èm"},{"id":14,"libelle":"Ministère de l'Emploi et de la Protection Sociale","contact":"20322683/ 20223924","localisation":"Plateau, Cité administrative, Tour A 10èm etage"},{"id":4,"libelle":"Ministère de l'Enseignement Supérieur et de la Recherche Scientifique","contact":"20335464/ 20210679","localisation":"Plateau,Cité administratibve, Tour C"},{"id":25,"libelle":"Ministère de l'Environnement et du Développement Durable","contact":"20 21 18 56 ","localisation":"Cocody, Riviera III"},{"id":56,"libelle":"Ministère de l'Equipement et de l'Entretien Routier","contact":"20347311/ 20347315","localisation":"Plateau, postel 2001"},{"id":35,"libelle":"Ministère de l'Hydraulique","contact":"","localisation":"Plateau, postel 2001,11ème étage"},{"id":9,"libelle":"Ministère de l'Intégration Africaine et des Ivoiriens Ã  l'Extérieur","contact":"20331212/ 20224156","localisation":"Plateau,Cité administrative, Tour B"},{"id":7,"libelle":"Ministère de l'Intérieur et de la Sécurité","contact":"20258787 / 20217603","localisation":"Plateau, Préfecture de police"},{"id":32,"libelle":"Ministère de la Communication et des Médias","contact":"20347349/20347358","localisation":"Plateau, immeuble postel 2001"},{"id":16,"libelle":"Ministère de la Construction","contact":"20217478/20218235","localisation":"Plateau,Cité administrative, Tour D"},{"id":22,"libelle":"Ministère de la Culture et de la Francophonie","contact":"20218394","localisation":"Plateau,Cité administrative, Tour E"},{"id":55,"libelle":"Ministère de la Femme, de la Famille et de l'Enfant","contact":"20217700/20217626","localisation":"Plateau, Cité administrative, Tour E"},{"id":31,"libelle":"Ministère de la Fonction Publique ","contact":"20259000/20259020","localisation":"Plateau, immeuble Chiquet, en face des finances"},{"id":76,"libelle":"Ministère de la Fonction Publique et","contact":"20259000/20259020","localisation":"Plateau, immeuble Chiquet, en face des finances"},{"id":77,"libelle":"Ministère de la Fonction Publique gghhjh","contact":"20259000/20259020","localisation":"Plateau, immeuble Chiquet, en face des finances"},{"id":21,"libelle":"Ministère de la Modernisation de l'Administration et de l'Innovation du Service Public","contact":"20214290/ 20218268","localisation":"Plateau, Cité Administrative, Tour C, 12ème"},{"id":26,"libelle":"Ministère de la Promotion de la Jeunesse et de l'Emploi des Jeunes ","contact":"20218803/20218034","localisation":"Plateau, Immeuble Caistab, 5ème étage"},{"id":17,"libelle":"Ministère de la Santé ","contact":"20210871/20225811","localisation":""},{"id":27,"libelle":"Ministère de la Solidarité de la Cohésion Sociale et de la Lutte contre la Pauvreté","contact":" 20 21 77 02 / 20 21 76 26","localisation":"Abidjan, Plateau Cité Administrative\r\nBPV 200 Abidjan\r\nTour E, 16ème Etage"},{"id":18,"libelle":"Ministère de la Ville","contact":"","localisation":"Plateau,Immeuble postel 2001, 10eme étage"},{"id":3,"libelle":"Ministère des affaires étrangères","contact":"20320888","localisation":"Plateau, bloc ministériel (face Mairie du Plateau"},{"id":8,"libelle":"Ministère des Eaux et ForÃªts","contact":"20217267/20219406","localisation":"Plateau, Cité administrative, Tour D, 19ème étage"},{"id":28,"libelle":"Ministère des infrastructures économiques","contact":"","localisation":"Plateau immeuble Postel 2000"},{"id":19,"libelle":"Ministère des Mines et de la Géologie","contact":"20213089/20218900","localisation":"ABIDJAN PLATEAU, IMMEUBLE CCIA"},{"id":11,"libelle":"Ministère des Ressources Animales et Halieutiques","contact":"20229916/20229927","localisation":"Plateau, Immeuble CAISTAB"},{"id":52,"libelle":"Ministère des Sports ","contact":"20218367/20224821","localisation":"Plateau, Immeuble SOGEFIA"},{"id":34,"libelle":"Ministère des Transports","contact":"20344857/20344858","localisation":"Plateau,Cité administrative, Tour C"},{"id":1,"libelle":"Ministère du budget et du Portefeuille de l'Etat","contact":"20211100 /20315000","localisation":"Plateau, non loin Bvd Angoulvand"},{"id":23,"libelle":"Ministère du Commerce, et de la Promotion des PME","contact":"20242604/20242603","localisation":"Plateau,Immeuble Nour-AL-Hayat, Avenue  Chardy"},{"id":24,"libelle":"Ministère du Pétrole, de l'Energie et du Développement des Energies Renouvelables","contact":"20215003/ 20215320","localisation":"Plateau, Immeuble CIAM 2èm étage"},{"id":12,"libelle":"Ministère du Plan et du Développement","contact":"20200842/ 20321448","localisation":"Plateau, Immeuble CIAM"},{"id":33,"libelle":"Ministère du Tourisme et des Loisirs","contact":"20242659","localisation":"Plateau, Immeuble postel 2001"},{"id":36,"libelle":"Secrétariat d' Etat, d'Investissement et Promotion de l'Entreprenariat","contact":"20311407","localisation":"Cocody, Ex CEPICI"},{"id":40,"libelle":"Secrétariat d'Etat auprès du garde des Sceaux","contact":"","localisation":"Cocody, AFD, prolongement de l'école de Police"},{"id":37,"libelle":"Secrétariat d'Etat auprès du premier Ministre,chargé du budget et du portefeuille de l'Etat","contact":"20215901/13","localisation":"Plateau, Immeuble CIAM, 10 et 11 eme étages"},{"id":41,"libelle":"Secrétariat d'Etat de Petite et Moyenne Entreprise (PME)","contact":"","localisation":"Plateau, Immeuble Postel 2001, 8ème étage"},{"id":39,"libelle":"Secrétariat d'Etat du Service Civique","contact":"","localisation":"Cocody, II plateau, ENA"}
 ]
 
 export default data;

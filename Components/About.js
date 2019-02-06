@@ -9,7 +9,7 @@ class About extends React.Component{
 
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
-              <Icon name="info" style={{fontSize: 20, color: tintColor}} />
+              <Icon name="information" style={{fontSize: 20, color: tintColor}} />
         )
     }
 

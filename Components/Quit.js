@@ -9,7 +9,7 @@ class Quit extends React.Component{
 
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
-              <Icon name="back" style={{fontSize: 20, color: tintColor}} />
+              <Icon name="arrow-back" style={{fontSize: 20, color: tintColor}} />
         )
     }
 

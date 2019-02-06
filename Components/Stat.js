@@ -9,7 +9,7 @@ class Stat extends React.Component{
 
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
-              <Icon name="chart" style={{fontSize: 20, color: tintColor}} />
+              <Icon name="analytics" style={{fontSize: 20, color: tintColor}} />
         )
     }
 

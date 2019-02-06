@@ -22,7 +22,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.nan.citoyen"
+    },
+    "android": {
+      "package": "com.nan.citoyen"
     }
   }
 }

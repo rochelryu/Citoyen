@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, SafeAreaView, ScrollView, Dimensions, Image } from 'react-native';
-import { createDrawerNavigator, DrawerItems } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createDrawerNavigator, DrawerItems } from 'react-navigation';
 import HomeScreen from './Components/HomeScreen';
 import ListMinistere from './Components/ListMinistere';
 import SuivieScreen from './Components/SuivieScreen';
@@ -12,13 +12,19 @@ import Quit from './Components/Quit';
 import Stat from './Components/Stat';
 import Numbers from './Components/Numbers';
 
-
+const AppNavigator = createStackNavigator({
+  Home: {screen: HomeScreen},
+  Suivie: {screen: SuivieScreen},
+  Soumettre: {screen: ListMinistere}
+}, ()=>{
+  createAppContainer(AppNavigator)
+})
 export default class App extends React.Component {
   render() {
     return (
       <ImageBackground source={require('./assets/bg.png')} style={styles.backgroundImage}>
         <AppDrawlerNavigation style={{marginTop: 20}} />
-        </ImageBackground>
+      </ImageBackground>
     );
   }
 }
@@ -36,7 +42,6 @@ const CustomDrawler = (props)=>(
     </ScrollView>
   </SafeAreaView>
   )
-
 const AppDrawlerNavigation = createDrawerNavigator({
   Accueil:HomeScreen,
   Soumettre:ListMinistere,

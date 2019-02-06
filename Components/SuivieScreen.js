@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View,Text, StyleSheet} from 'react-native';
 import { Header, Left, Button, Right, Body, Icon } from 'native-base';
 import Timeline from 'react-native-timeline-listview'
 

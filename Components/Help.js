@@ -9,7 +9,7 @@ class Help extends React.Component{
 
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
-              <Icon name="help" style={{fontSize: 20, color: tintColor}} />
+              <Icon name="help-circle" style={{fontSize: 20, color: tintColor}} />
         )
     }
 

@@ -1,4 +1,4 @@
-import { createStackNavigator, createAppContainer, createDrawerNavigator, DrawerItems } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import HomeScreen from './Components/HomeScreen';
 import ListMinistere from './Components/ListMinistere';
 import SuivieScreen from './Components/SuivieScreen';

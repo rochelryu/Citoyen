@@ -12,17 +12,17 @@ class  MinistereItem extends React.Component{
             >
                 <Image
                     style={styles.image}
-                    source={{uri: "http://reclamations.dgima.pro/themes/images/logo-armoirie.png"}}
+                    source={require('../assets/mini.png')}
                 />
                 <View style={styles.content_container}>
                     <View style={styles.header_container}>
-                        <Text style={styles.title_text}>{ministere.title}</Text>
+                        <Text style={styles.title_text}>{ministere.libelle}</Text>
                     </View>
                     <View style={styles.description_container}>
                         <Text style={styles.description_text}>
                             {ministere.contact}
                         </Text>
-                        <Text style={styles.statut_text}> {ministere.lieu}</Text>
+                        <Text style={styles.statut_text}> {ministere.localisation}</Text>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -39,9 +39,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     image: {
-        width: 100,
+        width: 120,
         height: 110,
-        backgroundColor: '#1FA51D'
     },
     content_container: {
         flex: 1,

@@ -9,7 +9,7 @@ class Numbers extends React.Component{
 
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
-              <Icon name="numbers" style={{fontSize: 20, color: tintColor}} />
+              <Icon name="archive" style={{fontSize: 20, color: tintColor}} />
         )
     }
 
