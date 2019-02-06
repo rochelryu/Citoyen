@@ -9,6 +9,14 @@ import MinistereItem from './MinistereItem';
 
 class ListMinistere extends React.Component{
 
+    constructor(props){
+        super();
+        getMinisteresFromApi().then(donn => {
+            this._ministeres = donn
+            this.forceUpdate()
+        })
+    }
+
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
               <Icon name="send" style={{fontSize: 20, color: tintColor}} />
@@ -38,11 +46,16 @@ class ListMinistere extends React.Component{
                     </Button>
                 </Right>
             </Header>
-                <FlatList
-                    data={ministeres}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({item}) => <MinistereItem ministere={item} displayDetailForMinistere={this._displayDetailForMinistere} />}
-                />
+                <View style={styles.grand}>
+                    <View style={styles.flatlist} >
+                        <FlatList
+                            data={this._ministeres}
+                            keyExtractor={(item) => item.id.toString()}
+                            renderItem={({item}) => <MinistereItem ministere={item} />}
+                        />
+                    </View>
+
+                </View>
             </View>
         )
     }

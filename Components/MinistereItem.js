@@ -1,15 +1,22 @@
 // Components/MinistereItem.js
 
+// Components/MinistereItem.js
+
 import React from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import ministeres from '../Helpers/MinistereData';
+
 
 class  MinistereItem extends React.Component{
+    constructor(props){
+        super();
+        this.state = { ministeres: []}
+    }
+
     render(){
-        const { ministere, displayDetailForMinistere } = this.props;
+        const ministere = this.props.ministere
         return(
-            <TouchableOpacity style={styles.main_container}
-                              onPress={() => displayDetailForMinistere(ministere.id)}
-            >
+            <TouchableOpacity style={styles.main_container}>
                 <Image
                     style={styles.image}
                     source={require('../assets/mini.png')}
@@ -39,8 +46,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     image: {
-        width: 120,
+        width: 100,
         height: 110,
+        backgroundColor: '#1FA51D'
     },
     content_container: {
         flex: 1,
@@ -63,6 +71,6 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize:15,
     }
-});
+})
 
 export default MinistereItem;
