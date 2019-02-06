@@ -55,12 +55,12 @@ const styles = StyleSheet.create({
         position: 'relative',
         bottom: "-15%",
         textAlign: 'center',
+        margin:30,
         borderRadius:5,
         display: 'flex',
         justifyContent:"center",
         alignItems: "center",
-        padding:16,
-        backgroundColor: "rgba(255,255,255,0)"
+        padding:16
       },
       bouton: {
         color: 'white',
@@ -91,6 +91,11 @@ class HomeScreen extends React.Component{
       setModalVisible(visible){
         this.setState({modalVisible: visible});
       }
+
+    constructor(props){
+        super(props)
+        this.state = { films: [], isLoading: false };
+    }
 
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
