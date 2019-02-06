@@ -23,10 +23,6 @@ class ListMinistere extends React.Component{
         )
     }
 
-    _displayDetailForMinistere = (idMinistere) => {
-        console.log("Display ministerie with id " + idMinistere)
-    }
-
     render(){
         return(
             <View style={{flex:1, marginTop: 21}}>

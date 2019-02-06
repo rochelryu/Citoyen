@@ -8,11 +8,6 @@ import ministeres from '../Helpers/MinistereData';
 
 
 class  MinistereItem extends React.Component{
-    constructor(props){
-        super();
-        this.state = { ministeres: []}
-    }
-
     render(){
         const ministere = this.props.ministere
         return(
