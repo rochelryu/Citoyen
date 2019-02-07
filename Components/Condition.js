@@ -1,23 +1,18 @@
 //components/ListMinistere.js
 
 import React from 'react';
-import {Alert, StyleSheet, Text, View,TextInput, TouchableHighlight, Image, FlatList} from 'react-native';
+import { Modal, TouchableWithoutFeedback, Text, StyleSheet, Platform, View, Picker, TextInput, TouchableOpacity } from 'react-native';
 import {Header, Left, Body, Icon, Button, Right } from 'native-base';
 import {localiteApi} from '../Helpers/minister';
-import Select from 'react-native-select-plus';
-
 
 
 class Condition extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {name : "", email: "", number:"", date: "", local: [
-            {"id":85,"libelle":"Abengourou"},{"id":57,"libelle":"Abidjan Rural"},{"id":45,"libelle":"Abidjan Urbaine"},{"id":326,"libelle":"Abigui"},{"id":47,"libelle":"Abobo"},{"id":88,"libelle":"Aboisso"},{"id":361,"libelle":"Aboisso-ComoÃ©"},{"id":366,"libelle":"Abongoua "},{"id":332,"libelle":"Aboude"},{"id":219,"libelle":"Adaou"},{"id":89,"libelle":"AdiakÃ©"},{"id":48,"libelle":"Adjame"},{"id":220,"libelle":"Adjouan "},{"id":127,"libelle":"AdzopÃ©"},{"id":358,"libelle":"AffÃ©ry"},{"id":34,"libelle":"Agboville"},{"id":3,"libelle":"Agneby-Tiassa"},{"id":86,"libelle":"AgnibilÃ©krou"},{"id":353,"libelle":"Agou"},{"id":128,"libelle":"AkoupÃ©"},{"id":297,"libelle":"Akpassanou"},{"id":129,"libelle":"AlÃ©pÃ©"},{"id":363,"libelle":"Allosso"},{"id":649,"libelle":"Amanvi"},{"id":205,"libelle":"AmÃ©lÃ©kia"},{"id":334,"libelle":"Ananguie "},{"id":314,"libelle":"AndÃ©"},{"id":536,"libelle":"Ando-KÃ©krÃ©nou"},{"id":293,"libelle":"Angoda"},{"id":306,"libelle":"Anianou"},{"id":206,"libelle":"AniassuÃ© "},{"id":354,"libelle":"AnnÃ©pÃ©"},{"id":318,"libelle":"Anoumaba"},{"id":60,"libelle":"Anyama"},{"id":628,"libelle":"Appimandou"},{"id":570,"libelle":"Arikokaha"},{"id":114,"libelle":"Arrah"},{"id":319,"libelle":"Assahara"},{"id":315,"libelle":"Assie-Koumassi"},{"id":355,"libelle":"Assikoi"},{"id":226,"libelle":"Assinie-Mafia"},{"id":652,"libelle":"AssuÃ©fry"},{"id":49,"libelle":"Attecoube"},{"id":63,"libelle":"AttiÃ©gouakro"},{"id":336,"libelle":"Attobrou"},{"id":221,"libelle":"AyamÃ© "},{"id":553,"libelle":"Ayaou-Sran"},{"id":337,"libelle":"AzaguiÃ©"},{"id":571,"libelle":"Badikaha"},{"id":4,"libelle":"bafing"},{"id":393,"libelle":"Bagohouo"},{"id":5,"libelle":"Bagoue"},{"id":246,"libelle":"Bako"},{"id":378,"libelle":"Bakoubly"},{"id":645,"libelle":"Bandakagni-Tomora"},{"id":136,"libelle":"Bangolo"},{"id":436,"libelle":"Banneu"},{"id":557,"libelle":"Bassawa"},{"id":483,"libelle":"Baya"},{"id":255,"libelle":"Bayota"},{"id":455,"libelle":"Bazra-Nattis"},{"id":472,"libelle":"BazrÃ©"},{"id":356,"libelle":"BÃ©cÃ©di-Brignan"},{"id":360,"libelle":"BÃ©couÃ©fin"},{"id":442,"libelle":"BÃ©diala"},{"id":162,"libelle":"BÃ©oumi"},{"id":374,"libelle":"Bedy-Goazon"},{"id":465,"libelle":"Begbessou"},{"id":6,"libelle":"Belier"},{"id":322,"libelle":"Bengassou"},{"id":385,"libelle":"Beoue-Zibiao"},{"id":7,"libelle":"Bere"},{"id":87,"libelle":"BettiÃ©"},{"id":140,"libelle":"Biankouma"},{"id":222,"libelle":"Bianouan"},{"id":367,"libelle":"BiÃ©by"},{"id":527,"libelle":"Bilimono"},{"id":437,"libelle":"Bin-HouyÃ©"},{"id":58,"libelle":"Bingerville"},{"id":408,"libelle":"Blapleu"},{"id":386,"libelle":"BlÃ©nimÃ©ouin"},{"id":488,"libelle":"BlessÃ©guÃ©"},{"id":131,"libelle":"BlolÃ©quin"},{"id":639,"libelle":"Boahia"},{"id":604,"libelle":"Bobo-Diarabana"},{"id":117,"libelle":"Bocanda"},{"id":538,"libelle":"Bodokro"},{"id":620,"libelle":"Bogofa"},{"id":422,"libelle":"BogouinÃ©"},{"id":448,"libelle":"Boguedia"},{"id":282,"libelle":"Bollo"},{"id":630,"libelle":"Bondo"},{"id":181,"libelle":"Bondoukou"},{"id":228,"libelle":"Bongo"},{"id":115,"libelle":"Bongouanou"},{"id":303,"libelle":"BonguÃ©ra"},{"id":558,"libelle":"BoniÃ©rÃ©dougou"},{"id":287,"libelle":"Bonikro"},{"id":466,"libelle":"Bonon"},{"id":229,"libelle":"Bonoua"},{"id":576,"libelle":"Booko"},{"id":497,"libelle":"Boron"},{"id":577,"libelle":"Borotou"},{"id":163,"libelle":"Botro"},{"id":149,"libelle":"BouaflÃ©"},{"id":520,"libelle":"Bouakaha"},{"id":164,"libelle":"BouakÃ©"},{"id":548,"libelle":"BouakÃ©-SP"},{"id":547,"libelle":"BouakÃ©-Ville"},{"id":595,"libelle":"Bouandougou"},{"id":516,"libelle":"Bougou"},{"id":247,"libelle":"Bougousso "},{"id":611,"libelle":"Bouka"},{"id":177,"libelle":"Bouna"},{"id":549,"libelle":"Bounda "},{"id":152,"libelle":"Boundiali"},{"id":8,"libelle":"Bounkani"},{"id":550,"libelle":"Brobo"},{"id":59,"libelle":"BrofodoumÃ©"},{"id":77,"libelle":"Buyo"},{"id":9,"libelle":"Cavaly"},{"id":338,"libelle":"CÃ©chi"},{"id":265,"libelle":"Chiepo"},{"id":50,"libelle":"Cocody"},{"id":166,"libelle":"Dabakala"},{"id":124,"libelle":"Dabou"},{"id":256,"libelle":"Dahiepa-Kehi"},{"id":68,"libelle":"dahiri"},{"id":271,"libelle":"Dairo-Didizo"},{"id":71,"libelle":"Dakpadou"},{"id":414,"libelle":"Daleu"},{"id":145,"libelle":"Daloa"},{"id":212,"libelle":"DamÃ©"},{"id":141,"libelle":"DananÃ©"},{"id":456,"libelle":"Danano"},{"id":364,"libelle":"Danguira"},{"id":457,"libelle":"Dania"},{"id":616,"libelle":"Danoa"},{"id":111,"libelle":"Daoukro"},{"id":79,"libelle":"Dapeoua"},{"id":198,"libelle":"Dapo-Iboke"},{"id":500,"libelle":"Dassoungboho"},{"id":493,"libelle":"DÃ©bÃ©tÃ©"},{"id":544,"libelle":"Diabo"},{"id":217,"libelle":"Diamarakro"},{"id":650,"libelle":"Diamba"},{"id":327,"libelle":"Diangokro"},{"id":172,"libelle":"Dianra"},{"id":592,"libelle":"Dianra-Village"},{"id":531,"libelle":"Diawala"},{"id":387,"libelle":"DiÃ©ouzon"},{"id":370,"libelle":"DibokÃ©"},{"id":554,"libelle":"Dibri-Assirikro"},{"id":107,"libelle":"DidiÃ©vi"},{"id":266,"libelle":"Didoko"},{"id":257,"libelle":"Dignago "},{"id":155,"libelle":"Dikodougou"},{"id":646,"libelle":"Dimandougou"},{"id":118,"libelle":"Dimbokro"},{"id":587,"libelle":"Dioman"},{"id":248,"libelle":"DioulatiÃ¨dougou"},{"id":43,"libelle":"District Autonome d'Abidjan"},{"id":62,"libelle":"District Autonome de Yamoussoukro"},{"id":103,"libelle":"Divo"},{"id":199,"libelle":"Djamandioke"},{"id":551,"libelle":"DjÃ©bonoua"},{"id":108,"libelle":"DjÃ©kanou"},{"id":600,"libelle":"Djibrosso"},{"id":275,"libelle":"Djidji"},{"id":200,"libelle":"Djouroutou"},{"id":193,"libelle":"Doba"},{"id":194,"libelle":"dogbo"},{"id":371,"libelle":"DokÃ©"},{"id":461,"libelle":"Domangbeu"},{"id":178,"libelle":"Doropo"},{"id":258,"libelle":"Dougroupalegnaoa "},{"id":259,"libelle":"Doukouyo "},{"id":605,"libelle":"Dualla"},{"id":137,"libelle":"DuÃ©kouÃ©"},{"id":213,"libelle":"Duffrebo"},{"id":207,"libelle":"Ebilassokro"},{"id":299,"libelle":"Ettrokro"},{"id":227,"libelle":"EtuÃ©bouÃ©"},{"id":138,"libelle":"Facobly"},{"id":601,"libelle":"Fadiadougou"},{"id":423,"libelle":"Fagnampleu"},{"id":307,"libelle":"Famienkro"},{"id":243,"libelle":"Fengolo "},{"id":159,"libelle":"FerkÃ©ssÃ©dougou"},{"id":10,"libelle":"Folon"},{"id":560,"libelle":"Foumbolo"},{"id":588,"libelle":"Foungbesso"},{"id":67,"libelle":"Fresco"},{"id":567,"libelle":"Fronan"},{"id":195,"libelle":"Gabiadji"},{"id":444,"libelle":"Gadouan"},{"id":100,"libelle":"Gagnoa"},{"id":276,"libelle":"Gagore"},{"id":261,"libelle":"Galebre-GalÃ©bouo"},{"id":485,"libelle":"Ganaoni"},{"id":69,"libelle":"Gbagbam"},{"id":409,"libelle":"GbangbÃ©gouinÃ©"},{"id":424,"libelle":"GbangbÃ©gouinÃ©-Yati"},{"id":395,"libelle":"Gbapleu"},{"id":95,"libelle":"GbÃ¨lÃ¨ban"},{"id":240,"libelle":"GbÃ©lÃ©ban"},{"id":12,"libelle":"Gbeke"},{"id":581,"libelle":"Gbelo"},{"id":445,"libelle":"GboguhÃ©"},{"id":13,"libelle":"Gbokle"},{"id":348,"libelle":"Gbolouville "},{"id":489,"libelle":"Gbon"},{"id":416,"libelle":"Gbon-Houye "},{"id":253,"libelle":"Gbongaha"},{"id":410,"libelle":"GbonnÃ©"},{"id":262,"libelle":"Gnagbodougnoa "},{"id":187,"libelle":"Gnamangui"},{"id":625,"libelle":"Gogo"},{"id":14,"libelle":"Goh"},{"id":476,"libelle":"Gohitafla"},{"id":388,"libelle":"Gohouo-Zagna"},{"id":344,"libelle":"Gomon"},{"id":446,"libelle":"GonatÃ©"},{"id":15,"libelle":"Gontougo"},{"id":277,"libelle":"Goudouko"},{"id":582,"libelle":"Gouekan"},{"id":411,"libelle":"GouinÃ©"},{"id":438,"libelle":"Goulaleu"},{"id":234,"libelle":"Goulia"},{"id":201,"libelle":"Grabo "},{"id":17,"libelle":"Grand Ponts"},{"id":90,"libelle":"Grand-Bassam"},{"id":196,"libelle":"Grand-Bereby"},{"id":125,"libelle":"Grand-Lahou"},{"id":339,"libelle":"Grand-MoriÃ©"},{"id":189,"libelle":"Grand-Zattry"},{"id":462,"libelle":"Gregbeu"},{"id":72,"libelle":"Grihiri"},{"id":396,"libelle":"GuÃ©hiÃ©bly"},{"id":80,"libelle":"GuÃ©yo"},{"id":397,"libelle":"GuÃ©zon"},{"id":16,"libelle":"Guemon"},{"id":463,"libelle":"Guessabo"},{"id":340,"libelle":"GuessiguiÃ©"},{"id":263,"libelle":"GuibÃ©roua "},{"id":499,"libelle":"GuiembÃ©"},{"id":132,"libelle":"Guiglo"},{"id":389,"libelle":"Guinglo-TahouakÃ©"},{"id":589,"libelle":"GuintÃ©guÃ©la"},{"id":35,"libelle":"Guitry"},{"id":18,"libelle":"Hambol"},{"id":19,"libelle":"Haut-Sassandra"},{"id":267,"libelle":"HirÃ© "},{"id":449,"libelle":"IboguhÃ©"},{"id":20,"libelle":"Iffou"},{"id":21,"libelle":"Indenie-Djuablin"},{"id":477,"libelle":"Iriefla"},{"id":146,"libelle":"Issia"},{"id":126,"libelle":"Jacqueville"},{"id":376,"libelle":"Kaade"},{"id":94,"libelle":"Kabadougou"},{"id":521,"libelle":"Kagbolodougou"},{"id":390,"libelle":"Kahin-Zarabaon"},{"id":621,"libelle":"Kakpin"},{"id":618,"libelle":"Kalamon"},{"id":606,"libelle":"Kamalo"},{"id":494,"libelle":"Kanakono"},{"id":175,"libelle":"Kani"},{"id":92,"libelle":"Kaniasso"},{"id":501,"libelle":"Kanoroba"},{"id":478,"libelle":"Kanzra"},{"id":532,"libelle":"Kaouara"},{"id":502,"libelle":"Karakoro"},{"id":486,"libelle":"KassÃ©rÃ©"},{"id":517,"libelle":"Katiala"},{"id":167,"libelle":"Katiola"},{"id":518,"libelle":"Katogo"},{"id":458,"libelle":"KÃ©tro-Bassam"},{"id":503,"libelle":"Kiemou"},{"id":237,"libelle":"Kimbirila-Nord "},{"id":251,"libelle":"Kimbirila-Sud"},{"id":308,"libelle":"Koffi-Amonkro"},{"id":640,"libelle":"Kokomian"},{"id":294,"libelle":"Kokoumbo"},{"id":490,"libelle":"Kolia"},{"id":504,"libelle":"Kombolokoura"},{"id":505,"libelle":"Komborodougou"},{"id":304,"libelle":"Kondossou"},{"id":539,"libelle":"Kondrobo"},{"id":160,"libelle":"Kong"},{"id":593,"libelle":"Kongasso"},{"id":506,"libelle":"Koni"},{"id":473,"libelle":"Kononfla"},{"id":583,"libelle":"Koonan"},{"id":156,"libelle":"Korhogo"},{"id":169,"libelle":"Koro"},{"id":66,"libelle":"Kossou"},{"id":312,"libelle":"Kotobi"},{"id":622,"libelle":"Kotouba"},{"id":400,"libelle":"Koua"},{"id":324,"libelle":"KouadioblÃ©kro"},{"id":223,"libelle":"Kouakro "},{"id":417,"libelle":"Kouan-Houle"},{"id":641,"libelle":"Kouassi-DattÃ©kro"},{"id":119,"libelle":"Kouassi-Kouassikro"},{"id":653,"libelle":"Kouassi-Niaguini"},{"id":474,"libelle":"Kouetinfla"},{"id":139,"libelle":"Kouibly"},{"id":53,"libelle":"Koumassi"},{"id":525,"libelle":"Koumbala"},{"id":182,"libelle":"Koun-Fao"},{"id":173,"libelle":"Kounahiri"},{"id":153,"libelle":"Kouto"},{"id":412,"libelle":"Kpata"},{"id":295,"libelle":"KpouÃ©bo"},{"id":313,"libelle":"Krebe"},{"id":545,"libelle":"Krofoinsou"},{"id":24,"libelle":"La Me"},{"id":105,"libelle":"Lakota"},{"id":546,"libelle":"Languibonou"},{"id":632,"libelle":"Laoud-Iba"},{"id":508,"libelle":"Lataha"},{"id":273,"libelle":"Lauzoua"},{"id":190,"libelle":"Liliyo "},{"id":73,"libelle":"Lobakuya"},{"id":425,"libelle":"LogoualÃ©"},{"id":102,"libelle":"Loh Djiboua"},{"id":64,"libelle":"Lolobo"},{"id":289,"libelle":"Lomokankro"},{"id":341,"libelle":"LoviguiÃ©"},{"id":305,"libelle":"M'Bahiakro"},{"id":116,"libelle":"M'Batto"},{"id":157,"libelle":"M'BenguÃ©"},{"id":112,"libelle":"M.Bahiakro"},{"id":96,"libelle":"Madinani"},{"id":224,"libelle":"MafÃ©rÃ©"},{"id":236,"libelle":"Mahandiana-Sokouran"},{"id":579,"libelle":"Mahandougou"},{"id":418,"libelle":"Mahapleu"},{"id":552,"libelle":"Mamini"},{"id":479,"libelle":"Maminigui"},{"id":142,"libelle":"Man"},{"id":174,"libelle":"Mankono"},{"id":541,"libelle":"Marabadiassa"},{"id":23,"libelle":"Marahoue"},{"id":597,"libelle":"Marandalah"},{"id":54,"libelle":"Marcory"},{"id":607,"libelle":"Massala"},{"id":81,"libelle":"MÃ©agui"},{"id":74,"libelle":"Medon"},{"id":331,"libelle":"Mekro"},{"id":379,"libelle":"Meo"},{"id":93,"libelle":"Minignan"},{"id":290,"libelle":"Molonou"},{"id":284,"libelle":"Molonou-BlÃ©"},{"id":349,"libelle":"Morokro"},{"id":603,"libelle":"Morondo"},{"id":25,"libelle":"Moronou"},{"id":468,"libelle":"N'Douffoukankro"},{"id":511,"libelle":"N'Ganon"},{"id":300,"libelle":"N'Gattakro"},{"id":245,"libelle":"N'Goloblasso "},{"id":317,"libelle":"N'Guessankro "},{"id":325,"libelle":"N'ZÃ¨krÃ©zessou"},{"id":27,"libelle":"N'zi"},{"id":309,"libelle":"Nafana"},{"id":509,"libelle":"Nafoun"},{"id":451,"libelle":"Nahio"},{"id":452,"libelle":"Namane"},{"id":510,"libelle":"NapiÃ©olÃ©dougou"},{"id":179,"libelle":"Nassian"},{"id":26,"libelle":"Nawa"},{"id":268,"libelle":"Nebo"},{"id":380,"libelle":"Nezobly"},{"id":208,"libelle":"NiablÃ©"},{"id":168,"libelle":"Niakaramadougou"},{"id":280,"libelle":"NiambÃ©zaaria"},{"id":619,"libelle":"Niamoue"},{"id":573,"libelle":"NiÃ©diÃ©kaha"},{"id":404,"libelle":"Nidrou"},{"id":533,"libelle":"NiellÃ©"},{"id":561,"libelle":"Niemene"},{"id":512,"libelle":"Niofoin"},{"id":580,"libelle":"Niokosso"},{"id":377,"libelle":"Nizahon"},{"id":231,"libelle":"NoÃ© "},{"id":329,"libelle":"NofoU"},{"id":232,"libelle":"Nouamou"},{"id":350,"libelle":"N’Douci"},{"id":97,"libelle":"OdiennÃ©"},{"id":365,"libelle":"Oghiwapo"},{"id":269,"libelle":"Ogoudou"},{"id":191,"libelle":"Okrouyo"},{"id":203,"libelle":"Olodio "},{"id":614,"libelle":"Ondefidouo "},{"id":342,"libelle":"Oress-Krobou"},{"id":161,"libelle":"Ouangolodougou"},{"id":170,"libelle":"Ouaninou"},{"id":301,"libelle":"OuÃ©llÃ©"},{"id":101,"libelle":"OumÃ©"},{"id":188,"libelle":"Oupoyo "},{"id":405,"libelle":"Ouyably-Gnondrou"},{"id":346,"libelle":"Pacobo"},{"id":469,"libelle":"Pakouabo"},{"id":495,"libelle":"Papara"},{"id":381,"libelle":"PÃ©hÃ©"},{"id":629,"libelle":"Pinda-Boroko"},{"id":51,"libelle":"Plateau"},{"id":427,"libelle":"Podiagouine"},{"id":28,"libelle":"Poro"},{"id":55,"libelle":"Port-Bouet"},{"id":113,"libelle":"Prikro"},{"id":285,"libelle":"Raviart"},{"id":343,"libelle":"Rubino"},{"id":585,"libelle":"Saboudougou"},{"id":75,"libelle":"Sago"},{"id":453,"libelle":"Saïoua"},{"id":165,"libelle":"Sakassou"},{"id":241,"libelle":"Samango "},{"id":302,"libelle":"Samanza"},{"id":98,"libelle":"Samatiguila"},{"id":197,"libelle":"San-PÃ©dro"},{"id":29,"libelle":"San-pedro"},{"id":183,"libelle":"SandÃ©guÃ©"},{"id":428,"libelle":"Sandougou-Soba"},{"id":429,"libelle":"SangouinÃ©"},{"id":413,"libelle":"Santa"},{"id":633,"libelle":"Sapli-SÃ©pingo"},{"id":598,"libelle":"Sarhala"},{"id":70,"libelle":"Sassandra"},{"id":562,"libelle":"Satama-Sokoro"},{"id":563,"libelle":"Satama-Sokoura"},{"id":176,"libelle":"SÃ©guÃ©la"},{"id":99,"libelle":"SÃ©guÃ©lon"},{"id":459,"libelle":"SÃ©itifla"},{"id":401,"libelle":"SÃ©mien"},{"id":522,"libelle":"Sediego"},{"id":420,"libelle":"Seileu"},{"id":242,"libelle":"Seydougou "},{"id":492,"libelle":"Sianhala"},{"id":487,"libelle":"Siempurgo"},{"id":609,"libelle":"SifiÃ© "},{"id":121,"libelle":"Sikensi"},{"id":530,"libelle":"Sikolo"},{"id":158,"libelle":"SinÃ©matiali"},{"id":150,"libelle":"Sinfra"},{"id":143,"libelle":"Sipilou"},{"id":513,"libelle":"Sirasso"},{"id":514,"libelle":"Sohouo"},{"id":564,"libelle":"Sokala-Sobara"},{"id":239,"libelle":"Sokoro "},{"id":624,"libelle":"SominassÃ©"},{"id":61,"libelle":"Songon"},{"id":634,"libelle":"Sorobango"},{"id":82,"libelle":"SoubrÃ©"},{"id":30,"libelle":"Sud-comoe"},{"id":122,"libelle":"Taabo"},{"id":635,"libelle":"Tabagne"},{"id":84,"libelle":"Tabou"},{"id":574,"libelle":"TafirÃ©"},{"id":636,"libelle":"Tagadi"},{"id":133,"libelle":"Tai"},{"id":185,"libelle":"Tanda"},{"id":214,"libelle":"Tanguelan"},{"id":643,"libelle":"TankÃ©ssÃ© "},{"id":637,"libelle":"Taoudi"},{"id":454,"libelle":"Tapeguia"},{"id":439,"libelle":"TÃ©apleu"},{"id":180,"libelle":"TÃ©hini"},{"id":31,"libelle":"Tchologo"},{"id":154,"libelle":"TengrÃ©la"},{"id":91,"libelle":"Tiapoum"},{"id":123,"libelle":"TiassalÃ©"},{"id":286,"libelle":"TiÃ©-N'DiÃ©kro"},{"id":109,"libelle":"TiÃ©bissou"},{"id":249,"libelle":"TiÃ©mÃ©"},{"id":321,"libelle":"TiÃ©mÃ©lÃ©kro"},{"id":599,"libelle":"TiÃ©ningbouÃ©"},{"id":470,"libelle":"Tibeita"},{"id":565,"libelle":"Tiendene-Bambarasso"},{"id":644,"libelle":"Tienkoikro"},{"id":402,"libelle":"Tieny-Seably"},{"id":569,"libelle":"TimbÃ©"},{"id":372,"libelle":"Tinhou"},{"id":382,"libelle":"Tiobly"},{"id":515,"libelle":"Tioroniaradougou"},{"id":526,"libelle":"TogoniÃ©rÃ©"},{"id":32,"libelle":"Tonpki"},{"id":575,"libelle":"Tortiya"},{"id":406,"libelle":"Totrodrou"},{"id":171,"libelle":"Touba"},{"id":627,"libelle":"Tougbo"},{"id":134,"libelle":"ToulÃ©pleu"},{"id":296,"libelle":"Toumodi"},{"id":556,"libelle":"Toumodi-Sakassou"},{"id":110,"libelle":"Toumoudi"},{"id":535,"libelle":"Toumoukoro"},{"id":186,"libelle":"Transua"},{"id":56,"libelle":"Treichville"},{"id":147,"libelle":"Vavoua"},{"id":480,"libelle":"VouÃ©boufla"},{"id":33,"libelle":"Worodougou"},{"id":610,"libelle":"Worofla"},{"id":130,"libelle":"YakassÃ©-Attobrou"},{"id":209,"libelle":"YakassÃ©-FÃ©yassÃ©"},{"id":357,"libelle":"YakassÃ©-MÃ©"},{"id":292,"libelle":"Yakpabo-Sakassou"},{"id":65,"libelle":"Yamoussoukro"},{"id":566,"libelle":"Yaossedougou"},{"id":430,"libelle":"Yapleu "},{"id":440,"libelle":"Yelleu"},{"id":638,"libelle":"Yezimala"},{"id":274,"libelle":"Yocoboue "},{"id":52,"libelle":"Yopougon"},{"id":648,"libelle":"Yorobodi"},{"id":435,"libelle":"Yorodougou"},{"id":615,"libelle":"Youndouo"},{"id":431,"libelle":"Zagoue"},{"id":471,"libelle":"ZaguiÃ©ta"},{"id":447,"libelle":"Zaïbo"},{"id":481,"libelle":"Zanzra"},{"id":210,"libelle":"Zaranou"},{"id":373,"libelle":"ZÃ©aglo"},{"id":391,"libelle":"ZÃ©o"},{"id":270,"libelle":"Zego "},{"id":281,"libelle":"Zikisso"},{"id":432,"libelle":"Ziogouine"},{"id":421,"libelle":"Zonneu"},{"id":392,"libelle":"Zou"},{"id":144,"libelle":"Zouan-Hounien"},{"id":148,"libelle":"Zoukougbeu"},{"id":151,"libelle":"ZuÃ©noula"}
-        ],value: null};
-        localiteApi().then(donn => /*{
-        this.setState({ local: donn }*/ console.log(donn));
-        this.searchText = "";
-        this.affiche = "";
+        this.state = {name : "", email: "", number:"", date: "",modalVisible: false};
+        localiteApi().then(donn => {
+        this.local = donn } );
+        this.forceUpdate()
       }
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
@@ -28,46 +23,107 @@ class Condition extends React.Component {
     onSelectedItemsChange = (key, value) => {
         this.setState({ value: value });
       };
-    render(){
-        const { value } = this.state;
-        return(
-            <View style={{flex:1, marginTop: 21}}>
-            <Header style={{backgroundColor:'orange'}}>
-                <Left>
-                    <Button transparent>
-                        <Icon name='menu' onPress={()=> this.props.navigation.openDrawer()}/>
-                    </Button>
-                    
-                </Left>
-                <Body>
-                    <Text style={{color:"white", fontSize:13}}>Condidtion</Text>
-                </Body>
-                <Right>
-                    <Button transparent>
-                        <Icon name='close' onPress={()=> this.props.navigation.goBack()}/>
-                    </Button>
-                </Right>
-            </Header>
-            <View style={{ flex: 1 }}>
-                <Select
-                data={this.items}
-                width={250}
-                placeholder="Commune/localite ..."
-                onSelect={this.onSelectedItemsChange.bind(this)}
-                data={data}
-                search={true}
+      render() {
+        if (Platform.OS === 'android') {
+          return (
+            <Picker
+              selectedValue={this.props.localisation}
+              onValueChange={this.props.onValueChange}>
+              {this.props.items.map((i, index) => (
+                <Picker.Item key={index} label={i.id} value={i.value} />
+              ))}
+            </Picker>
+          );
+        } else {
+          const selectedItem = this.props.items.find(
+            i => i.localisation === this.props.localisation
+          );
+          const selectedid = selectedItem ? selectedItem.id : '';
+          return (
+            <View style={styles.inputContainer}>
+              <TouchableOpacity
+                onPress={() => this.setState({ modalVisible: true })}>
+                <TextInput
+                  style={styles.input}
+                  editable={false}
+                  placeholder="Select language"
+                  onChangeText={searchString => {
+                    this.setState({ searchString });
+                  }}
+                  value={selectedid}
                 />
-        <View>
-        </View>
-      </View>
+              </TouchableOpacity>
+              <Modal
+                animationType="slide"
+                transparent={true}
+                visible={this.state.modalVisible}>
+                <TouchableWithoutFeedback
+                  onPress={() => this.setState({ modalVisible: false })}>
+                  <View style={styles.modalContainer}>
+                    <View style={styles.buttonContainer}>
+                      <Text
+                        style={{ color: 'blue' }}
+                        onPress={() => this.setState({ modalVisible: false })}>
+                        Done
+                      </Text>
+                    </View>
+                    <View>
+                      <Picker
+                        selectedValue={this.props.value}
+                        onValueChange={this.props.onValueChange}>
+                        {this.props.items.map((i, index) => (
+                          <Picker.Item
+                            key={index}
+                            label={i.id}
+                            value={i.localisation}
+                          />
+                        ))}
+                      </Picker>
+                    </View>
+                  </View>
+                </TouchableWithoutFeedback>
+              </Modal>
             </View>
-        )
-    }
+          );
+        }
+      }
 }
 
 const styles = StyleSheet.create({
-
-})
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    content: {
+      marginLeft: 15,
+      marginRight: 15,
+      marginBottom: 5,
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+    },
+    inputContainer: {
+      ...Platform.select({
+        ios: {
+          borderBottomColor: 'gray',
+          borderBottomWidth: 1,
+        },
+      }),
+    },
+    input: {
+      height: 40,
+    },
+    modalContainer: {
+      flex: 1,
+      justifyContent: 'flex-end',
+    },
+    buttonContainer: {
+      justifyContent: 'flex-end',
+      flexDirection: 'row',
+      padding: 4,
+      backgroundColor: '#ececec',
+    },
+  });
 
 
 export default Condition;
