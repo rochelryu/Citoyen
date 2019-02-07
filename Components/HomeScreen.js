@@ -146,7 +146,7 @@ class HomeScreen extends React.Component{
                 <Text style={styles.top}>
                 LE PORTAIL DU CITOYEN
                 </Text>
-                <Image style={styles.Icon} source={require('../assets/iconT.png')}/>
+                <Image style={{marginBottom: 10}} source={require('../assets/iconT.png')}/>
             </View>
                 <View style={styles.trans}>
                     <TouchableOpacity onPress={() => this.setModalVisible(true)}>
@@ -161,7 +161,7 @@ class HomeScreen extends React.Component{
                 <TouchableOpacity onPress={()=> console.log('je clique vraiment 2')}>
                     <Image style={styles.img} source={require('../assets/x.png')}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> this.props.navigation('Suivie')}>
+                <TouchableOpacity onPress={()=> navigate("SuivieT")} >
                     <Image style={styles.img1} source={require('../assets/suivre.png')}/>
                 </TouchableOpacity>
                 </View>

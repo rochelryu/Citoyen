@@ -1,37 +1,58 @@
 import React from 'react'
 import {View, Text, StyleSheet} from 'react-native';
 import {Button} from 'native-base';
-
+import Dialog from "react-native-dialog";
 
 
 
 class Demande extends React.Component{
-    render(){
-        const result = this.props.etat;
-        if(result){
-        return(
-            <View style={styles.container }>
-                <Text style={styles.title }>Demande Num 1234567 </Text>
-                <Text style={styles.subTitle }>Statut </Text>
-                <Text style={styles.wait }>En cours de traitement vous serez notifié en moins de 5 jours. </Text>
-                <Text style={styles.subTitle }>Message </Text>
-                <Text style={styles.simple }>Lorem ipsum de dire ce que je ne pense pas sans aucune pensé. Bref ici sera affiché le message notifiant au client ce qu'il doit faire ou pas. Bon je ne sais pas vraiment grande chose moi même donc je m'exprime</Text>
-                <Text style={styles.subTitle }>Département </Text>
-                <Text style={styles.simple }>Ministère de l'emploie et de la protection Sociale</Text>
-                <Text style={styles.subTitle }>Commune </Text>
-                <Text style={styles.simple }>Aboisso</Text>
+    state = {
+        dialogVisible: true
+      };
 
-                <Button title="Fermer" onPress={()=> this.props.navigation.goBack()} />
+    handleCancel = () => {
+        this.setState({ dialogVisible: false });
+      };
+
+    render () {
+        const ele = this.props.client;
+        if(ele.length > 0){
+        return (
+          <View>
+            <Dialog.Container>
+              <Dialog.Title>Account delete</Dialog.Title>
+              <Dialog.Description>
+              <View style={styles.container }>
+              <Text style={styles.title }>Demande Num {ele.numero} </Text>
+              <Text style={styles.subTitle }>Statut </Text>
+              <Text style={styles.wait }>{(ele.reponsenivavancement != null) ? ele.reponsenivavancement : 'Aucun Statut pour le moment' } </Text>
+              <Text style={styles.subTitle }>Message </Text>
+              <Text style={styles.simple }>{ele.message}</Text>
+              <Text style={styles.subTitle }>Département </Text>
+              <Text style={styles.simple }>{ele.libelle}</Text>
+              <Text style={styles.subTitle }>Commune </Text>
+              <Text style={styles.simple }>{ele.localisation}</Text>
+          </View>
+          </Dialog.Description>
+              <Dialog.Button label="Fermer" onPress={this.handleCancel} />
+            </Dialog.Container>
+          </View>
+       )}
+       else{
+        return (
+            <View>
+              <Dialog.Container>
+                <Dialog.Title>Account delete</Dialog.Title>
+                <Dialog.Description>
+                CE CODE N'AS AUCUNE DEMANDE
+            </Dialog.Description>
+                <Dialog.Button label="Fermer" onPress={this.handleCancel} />
+              </Dialog.Container>
             </View>
-        )
-    }
-    else{
-        return(
-            <View style={styles.container }>
-            </View>
-        )
-    }
-    }
+         ) 
+       }
+  }
+
 }
 
 const styles = StyleSheet.create({

@@ -1,65 +1,72 @@
-import React from 'react'
-import {View,Text, StyleSheet} from 'react-native';
+//components/ListMinistere.js
+
+import React from 'react';
+import {StyleSheet, View, Text, FlatList, TextInput} from 'react-native';
 import { Header, Left, Button, Right, Body, Icon } from 'native-base';
-import Timeline from 'react-native-timeline-listview'
+import { Dialog } from 'react-native-simple-dialogs';
+import DocForm from "react-cross-form";
+import { getRecom } from '../Helpers/MinistereData'
+import {Demande} from './Demande'
 
-/*const MainNavigator = 
-  const AppT = createAppNavigator(MainNavigator);*/
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        marginTop: 21
+const FORM_FIELDS = [
+    {
+      key: "code",
+      label: "Code de Validation",
+      placeholder: "12345678",
+      component: TextInput,
+      validators: { tel: true, length: { minimum: 3 },  }
     }
-})
+  ];
 
 class SuivieScreen extends React.Component{
-    constructor(){
-        super()
-        this.data = [
-          {time: '1', title: 'Code de votre demande'},
-          {time: '2', description: 'Event 1 Description'}
-        ]
-      }
+    constructor(props) {
+		super(props);
+		this.state = {
+			form: {
+				code: null
+			},
+			isValid: false
+		};
+		this.onChange = this.onChange.bind(this)
+	}
+	onChange({updateData}){
+		this.setState({ form: updateData })
+    }
+    
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
               <Icon name="eye" style={{fontSize: 20, color: tintColor}} />
         )
     }
+
+    _displayDetailForMinistere = (idMinistere) => {
+        console.log("Display ministerie with id " + idMinistere)
+    }
+
     render(){
-        return(
-            <View style={styles.container }>
-            <Header style={{backgroundColor:'orange'}}>
-                <Left>
-                    <Button transparent>
-                        <Icon name='menu' onPress={()=> this.props.navigation.openDrawer()}/>
-                    </Button>
-                    
-                </Left>
-                <Body>
-                    <Text style={{color:"white", fontSize:13}}>Suivre une demande</Text>
-                </Body>
-                <Right>
-                    <Button transparent>
-                        <Icon name='close' onPress={()=> this.props.navigation.goBack()}/>
-                    </Button>
-                </Right>
-            </Header>
-            <Timeline
-            data={this.data}
-            circleSize={20}
-          circleColor='rgb(255,127,39)'
-          lineColor='rgb(68,68,68)'
-          timeContainerStyle={{minWidth:52}}
-          timeStyle={{textAlign: 'center', backgroundColor:'#555555', color:'white', borderRadius:50}}
-          descriptionStyle={{color:'gray'}}
-          options={{
-            style:{paddingTop:5}
-          }}
-          />
-            </View>
-        )
+            const { form, isFormValid } = this.state;
+            return (
+              <div>
+                <h2>Code De Validation</h2>
+                <form>
+                <DocForm
+                  fields={FORM_FIELDS}
+                  data={this.state.form}
+                  onChange={this.onChange}
+                  validateType="all"
+                  onValidateStateChanged={({ isValid }) => {
+                    this.setState({ isFormValid: isValid });
+                  }}
+                />
+                </form>
+              </div>
+            );
     }
 }
+
+const styles = StyleSheet.create({
+
+})
+
 
 export default SuivieScreen;

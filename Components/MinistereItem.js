@@ -10,7 +10,6 @@ import ministeres from '../Helpers/MinistereData';
 class  MinistereItem extends React.Component{
     render(){
         const ministere = this.props.ministere
-        const {navigate} = this.props.navigation;
         return(
             <TouchableOpacity style={styles.main_container}>
                 <Image
