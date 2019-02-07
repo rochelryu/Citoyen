@@ -24,7 +24,7 @@ class ListMinistere extends React.Component{
 
     render(){
         return(
-            <View style={{flex:1, marginTop: 21}}>
+            <View style={{flex:1, marginTop: 22}}>
             <Header style={{backgroundColor:'orange'}}>
                 <Left>
                     <Button transparent>
@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
         flex: 15
     },
 
-})
-
+});
 
 export default ListMinistere;

@@ -13,8 +13,10 @@ const AppNavigator = createStackNavigator({
     Home: {screen: HomeScreen},
     Suivie: {screen: SuivieScreen},
     Soumettre: {screen: ListMinistere},
-    Abou: {screen: About},
-    Admin: {screen: AdminScreen},
-    Condi: {screen: Condition}
+    MinistereItem: {screen: MinistereItem},
+    Condi: {screen: Condition},
+    Demande: {screen: Demande},
+    Statistique: {screen: Stat}
+
   })
 export default createAppContainer(AppNavigator);

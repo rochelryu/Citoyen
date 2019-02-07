@@ -14,8 +14,12 @@ import Numbers from './Components/Numbers';
 
 const AppNavigator = createStackNavigator({
   Home: {screen: HomeScreen},
-  Suivie: {screen: SuivieScreen},
-  Soumettre: {screen: ListMinistere}
+    Suivie: {screen: SuivieScreen},
+    Soumettre: {screen: ListMinistere},
+    MinistereItem: {screen: MinistereItem},
+    Condi: {screen: Condition},
+    Demande: {screen: Demande},
+    Statistique: {screen: Stat},
 }, ()=>{
   createAppContainer(AppNavigator)
 })

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0d069982-28be-4a7c-89b1-53d878ab0e8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.expo/packager-info.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/packager-info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/ListMinistere.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/ListMinistere.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/MinistereItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MinistereItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Navigation.js" afterDir="false" />
     </list>

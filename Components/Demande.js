@@ -6,14 +6,6 @@ import Dialog from "react-native-dialog";
 
 
 class Demande extends React.Component{
-    state = {
-        dialogVisible: true
-      };
-
-    handleCancel = () => {
-        this.setState({ dialogVisible: false });
-      };
-
     render () {
         const ele = this.props.client;
         if(ele.length > 0){

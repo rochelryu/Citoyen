@@ -1,15 +1,10 @@
 import React from 'react';
 import { Alert, Text, TextInput, StyleSheet, View, ScrollView } from 'react-native';
-import { Header, Left, Button, Right, Body, Icon, Form, Item,Label,Input } from 'native-base';
-import { CheckBox } from 'react-native-elements'
+import { Header, Left, Right, Body, Icon, Form, Item,Label,Input } from 'native-base';
+import { CheckBox, Button } from 'react-native-elements'
 import {localiteApi} from '../Helpers/MinistereData'
 import RNPickerSelect from 'react-native-picker-select';
 // import RNPickerSelect from './debug'
-
-
-const dataArray = [
-    { title: "First Element", content: "" }
-  ];
 
 
 export default class App extends React.Component {
@@ -26,6 +21,12 @@ export default class App extends React.Component {
         })
         this.state = {
             checked: false,
+            name: "",
+            email: "",
+            tel: "",
+            message: "",
+            theme: "",
+            prenom: "",
             favColor: undefined,
             items: [],
             favSport: undefined,
@@ -44,6 +45,11 @@ export default class App extends React.Component {
                 },
             ],
         };
+    }
+    _isloading(){
+        if(this.state.email > 0 && this.state.favSport != undefined && this.state.tel > 0 && this.state.name > 0 && this.state.prenom > 0 && this.state.message > 0 && this.state.theme > 0 && this.state.favColor != undefined && this.state.checked ){
+            console.log('Prèt pour le post')
+        }
     }
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
@@ -169,25 +175,17 @@ export default class App extends React.Component {
             </Item>
             <View style={{ flexDirection:'row' }}>
             <CheckBox
-                title="J'accepte l'ensemble des termes et conditions d'utilisations j'approuve que les informations figurant ci-dessus sont corrèctes et conformes à la réalité. J'accepte également de mettre à la disposition de l'administration l'ensemble des documents qui servent au traitement de la réclamation conformément aux lois applicables et j'approuve que l'objet de cette réclamation n'a jamais été portée devant la justice ou une autorité compétente et qu'aucune décision judiciaire n'a été délivrée à son propos."
-                iconRight
-                iconType='material'
-                checkedIcon='clear'
-                uncheckedIcon='add'
-                checkedColor='red'
+                center
+                title='Click Here'
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
                 checked={this.state.checked}
                 />
             </View>
 
             <View style={{ marginTop: 100, padding: 20}}>
             
-            <Button
-
-            on
-            onPress={() => this._isloading()}
-                raised
-                icon={{name: 'save'}}
-                title='Envoyé' />
+            <Button onPress={() => this._isloading()} raised icon={{name: 'save'}} title='Envoyé' />
             
             </View>
           </Form>
