@@ -8,11 +8,6 @@ import ministeres from '../Helpers/MinistereData';
 
 
 class  MinistereItem extends React.Component{
-    constructor(props){
-        super();
-        this.state = { ministeres: []}
-    }
-
     render(){
         const ministere = this.props.ministere
         return(
@@ -23,7 +18,7 @@ class  MinistereItem extends React.Component{
                 />
                 <View style={styles.content_container}>
                     <View style={styles.header_container}>
-                        <Text style={styles.title_text}>{ministere.libelle}</Text>
+                        <Text style={styles.title_text} numberOfLines={2}>{ministere.libelle}</Text>
                     </View>
                     <View style={styles.description_container}>
                         <Text style={styles.description_text}>
@@ -40,19 +35,22 @@ class  MinistereItem extends React.Component{
 const styles = StyleSheet.create({
 
     main_container: {
-        height: 110,
+        height: 90,
         borderWidth:1,
         flexDirection: 'row',
         backgroundColor: 'white'
     },
     image: {
-        width: 100,
-        height: 110,
+        width: 110,
+        height: 100,
         backgroundColor: '#1FA51D'
     },
     content_container: {
         flex: 1,
         margin: 5
+    },
+    description_container:{
+        flex: 2
     },
     header_container: {
         flex: 3,
@@ -60,7 +58,7 @@ const styles = StyleSheet.create({
     },
     title_text: {
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize: 14,
         flex: 1,
         flexWrap: 'wrap',
         paddingRight: 5,
@@ -69,7 +67,12 @@ const styles = StyleSheet.create({
     description_text: {
         fontStyle: 'italic',
         color: 'black',
-        fontSize:15,
+        fontSize: 14,
+    },
+    statut_text: {
+        fontStyle: 'italic',
+        color: '#444',
+        fontSize: 12,
     }
 })
 

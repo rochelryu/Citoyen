@@ -53,9 +53,8 @@ const styles = StyleSheet.create({
     },
     modal:{
         position: 'relative',
-        bottom: "-15%",
         textAlign: 'center',
-        margin:30,
+        margin:10,
         borderRadius:5,
         display: 'flex',
         justifyContent:"center",
@@ -78,24 +77,19 @@ const styles = StyleSheet.create({
         marginTop:15,
         color: 'red',
         borderWidth: 1,
-        borderColor: 'red',
         padding:10
       },
 })
 
 class HomeScreen extends React.Component{
-    state = {
-        modalVisible: false,
-      };
     
-      setModalVisible(visible){
-        this.setState({modalVisible: visible});
-      }
-
     constructor(props){
         super(props)
-        this.state = { films: [], isLoading: false };
+        this.state = { films: [], isLoading: false, modalVisible: false };
     }
+    setModalVisible(visible){
+        this.setState({modalVisible: visible});
+      }
 
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (

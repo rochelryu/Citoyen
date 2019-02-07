@@ -3,7 +3,7 @@
 import React from 'react';
 import {StyleSheet, View, Text, FlatList} from 'react-native';
 import { Header, Left, Button, Right, Body, Icon } from 'native-base';
-import ministeres from '../Helpers/MinistereData';
+import {getMinisteresFromApi} from '../Helpers/MinistereData';
 import MinistereItem from './MinistereItem';
 
 class ListMinistere extends React.Component{
@@ -33,7 +33,7 @@ class ListMinistere extends React.Component{
                     
                 </Left>
                 <Body>
-                    <Text style={{color:"white", fontSize:13}}>Suivre une demande</Text>
+                    <Text style={{color:"white", fontSize:13}}>Liste Ministère</Text>
                 </Body>
                 <Right>
                     <Button transparent>
