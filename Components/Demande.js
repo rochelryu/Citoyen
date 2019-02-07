@@ -7,7 +7,7 @@ import {Button} from 'native-base';
 
 class Demande extends React.Component{
     render(){
-        const result = this.props.etat;
+        
         if(result){
         return(
             <View style={styles.container }>

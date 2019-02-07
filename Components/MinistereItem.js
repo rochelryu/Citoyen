@@ -1,17 +1,13 @@
 // Components/MinistereItem.js
 
-// Components/MinistereItem.js
-
 import React from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
-import ministeres from '../Helpers/MinistereData';
-
 
 class  MinistereItem extends React.Component{
     render(){
-        const ministere = this.props.ministere
+        const ministere = this.props.ministere;
         return(
-            <TouchableOpacity style={styles.main_container}>
+            <TouchableOpacity style={styles.main_container} onPress={() => console.log("je suis un ministereItem")}>
                 <Image
                     style={styles.image}
                     source={require('../assets/mini.png')}
@@ -22,7 +18,7 @@ class  MinistereItem extends React.Component{
                     </View>
                     <View style={styles.description_container}>
                         <Text style={styles.description_text}>
-                            {ministere.contact}
+                           {ministere.contact}
                         </Text>
                         <Text style={styles.statut_text}> {ministere.localisation}</Text>
                     </View>

@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
         flex: 15
     },
 
-})
-
+});
 
 export default ListMinistere;
