@@ -10,6 +10,7 @@ import ministeres from '../Helpers/MinistereData';
 class  MinistereItem extends React.Component{
     render(){
         const ministere = this.props.ministere
+        const {navigate} = this.props.navigation;
         return(
             <TouchableOpacity style={styles.main_container}>
                 <Image
@@ -35,7 +36,7 @@ class  MinistereItem extends React.Component{
 const styles = StyleSheet.create({
 
     main_container: {
-        height: 90,
+        height: 95,
         borderWidth:1,
         flexDirection: 'row',
         backgroundColor: 'white'
@@ -67,12 +68,14 @@ const styles = StyleSheet.create({
     description_text: {
         fontStyle: 'italic',
         color: 'black',
-        fontSize: 14,
+        fontSize: 12,
+        fontWeight: 'bold',
     },
     statut_text: {
         fontStyle: 'italic',
         color: '#444',
         fontSize: 12,
+        fontWeight: 'bold',
     }
 })
 

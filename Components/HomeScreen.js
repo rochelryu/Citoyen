@@ -1,7 +1,6 @@
 import React from 'react'
 import {View, Text, StyleSheet, Image, TouchableOpacity,TouchableHighlight, Modal, Alert} from 'react-native'
 import { Header, Left, Button, Right, Icon } from 'native-base';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 
 
@@ -98,6 +97,7 @@ class HomeScreen extends React.Component{
     }
 
     render(){
+        const {navigate} = this.props.navigation;
         return (
         <View style={styles.container}>
             {/* modal d'affichage */}
@@ -110,13 +110,13 @@ class HomeScreen extends React.Component{
             }}>
                 <View style={{flex:1, display:'flex', justifyContent:'center', backgroundColor: 'rgba(255,255,255,0.3)'}}>
                     <View style = {styles.modal}>
-                    <TouchableOpacity onPress={()=> console.log('beta')}>
+                    <TouchableOpacity onPress={()=> navigate('Soumettre')}>
                         <Text style= {styles.bouton}> RECLAMATION </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=> console.log('beta')}>
+                    <TouchableOpacity onPress={()=> navigate('Soumettre')}>
                         <Text style= {styles.bouton}> SUGGESTION </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=> console.log('beta')}>
+                    <TouchableOpacity onPress={()=> navigate('Soumettre')}>
                         <Text style= {styles.bouton}> OBSERVATION </Text>
                     </TouchableOpacity>
                     <TouchableHighlight
