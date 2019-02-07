@@ -1,18 +1,21 @@
 //components/ListMinistere.js
 
 import React from 'react';
-import { Modal, TouchableWithoutFeedback, Text, StyleSheet, Platform, View, Picker, TextInput, TouchableOpacity } from 'react-native';
+import {Alert, StyleSheet, Text, View,TextInput, TouchableHighlight, Image, FlatList} from 'react-native';
 import {Header, Left, Body, Icon, Button, Right } from 'native-base';
 import {localiteApi} from '../Helpers/minister';
+import Select from 'react-native-select-plus';
+
 
 
 class Condition extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {name : "", email: "", number:"", date: "",modalVisible: false};
+        this.state = {name : "", email: "", number:"", date: "", local: [],value: null};
         localiteApi().then(donn => {
-        this.local = donn } );
-        this.forceUpdate()
+        this.setState({ local: donn })} );
+        this.searchText = "";
+        this.affiche = "";
       }
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
@@ -23,107 +26,45 @@ class Condition extends React.Component {
     onSelectedItemsChange = (key, value) => {
         this.setState({ value: value });
       };
-      render() {
-        if (Platform.OS === 'android') {
-          return (
-            <Picker
-              selectedValue={this.props.localisation}
-              onValueChange={this.props.onValueChange}>
-              {this.props.items.map((i, index) => (
-                <Picker.Item key={index} label={i.id} value={i.value} />
-              ))}
-            </Picker>
-          );
-        } else {
-          const selectedItem = this.props.items.find(
-            i => i.localisation === this.props.localisation
-          );
-          const selectedid = selectedItem ? selectedItem.id : '';
-          return (
-            <View style={styles.inputContainer}>
-              <TouchableOpacity
-                onPress={() => this.setState({ modalVisible: true })}>
-                <TextInput
-                  style={styles.input}
-                  editable={false}
-                  placeholder="Select language"
-                  onChangeText={searchString => {
-                    this.setState({ searchString });
-                  }}
-                  value={selectedid}
+    render(){
+        const { value } = this.state;
+        return(
+            <View style={{flex:1, marginTop: 21}}>
+            <Header style={{backgroundColor:'orange'}}>
+                <Left>
+                    <Button transparent>
+                        <Icon name='menu' onPress={()=> this.props.navigation.openDrawer()}/>
+                    </Button>
+                    
+                </Left>
+                <Body>
+                    <Text style={{color:"white", fontSize:13}}>Condidtion</Text>
+                </Body>
+                <Right>
+                    <Button transparent>
+                        <Icon name='close' onPress={()=> this.props.navigation.goBack()}/>
+                    </Button>
+                </Right>
+            </Header>
+            <View style={{ flex: 1 }}>
+                <Select
+                data={this.items}
+                width={250}
+                placeholder="Commune/localite ..."
+                onSelect={this.onSelectedItemsChange.bind(this)}
+                search={true}
                 />
-              </TouchableOpacity>
-              <Modal
-                animationType="slide"
-                transparent={true}
-                visible={this.state.modalVisible}>
-                <TouchableWithoutFeedback
-                  onPress={() => this.setState({ modalVisible: false })}>
-                  <View style={styles.modalContainer}>
-                    <View style={styles.buttonContainer}>
-                      <Text
-                        style={{ color: 'blue' }}
-                        onPress={() => this.setState({ modalVisible: false })}>
-                        Done
-                      </Text>
-                    </View>
-                    <View>
-                      <Picker
-                        selectedValue={this.props.value}
-                        onValueChange={this.props.onValueChange}>
-                        {this.props.items.map((i, index) => (
-                          <Picker.Item
-                            key={index}
-                            label={i.id}
-                            value={i.localisation}
-                          />
-                        ))}
-                      </Picker>
-                    </View>
-                  </View>
-                </TouchableWithoutFeedback>
-              </Modal>
+        <View>
+        </View>
+      </View>
             </View>
-          );
-        }
-      }
+        )
+    }
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    content: {
-      marginLeft: 15,
-      marginRight: 15,
-      marginBottom: 5,
-      alignSelf: 'stretch',
-      justifyContent: 'center',
-    },
-    inputContainer: {
-      ...Platform.select({
-        ios: {
-          borderBottomColor: 'gray',
-          borderBottomWidth: 1,
-        },
-      }),
-    },
-    input: {
-      height: 40,
-    },
-    modalContainer: {
-      flex: 1,
-      justifyContent: 'flex-end',
-    },
-    buttonContainer: {
-      justifyContent: 'flex-end',
-      flexDirection: 'row',
-      padding: 4,
-      backgroundColor: '#ececec',
-    },
-  });
+
+})
 
 
 export default Condition;

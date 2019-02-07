@@ -1,9 +1,9 @@
 {
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "packagerPort": 19001,
+  "packagerPid": 52068,
+  "expoServerNgrokUrl": "https://jj-m9y.icore.citoyen.exp.direct",
+  "packagerNgrokUrl": "https://packager.jj-m9y.icore.citoyen.exp.direct",
+  "ngrokPid": 54056,
   "devToolsPort": 19002,
-  "expoServerPort": null
+  "expoServerPort": 19000
 }
