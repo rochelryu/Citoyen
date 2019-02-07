@@ -11,11 +11,10 @@ import Select from 'react-native-select-plus';
 class Condition extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {name : "", email: "", number:"", date: "", local: [],value: null};
-        localiteApi().then(donn => /*{
-        this.setState({ local: donn }*/ console.log(donn));
-        this.searchText = "";
-        this.affiche = "";
+        this.state = {name : "", email: "", number:"", date: "",value: null};
+        localiteApi().then(donn => {
+        this.local = donn } );
+        this.forceUpdate()
       }
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
@@ -48,14 +47,14 @@ class Condition extends React.Component {
             </Header>
             <View style={{ flex: 1 }}>
                 <Select
-                data={this.items}
+                datas={this.local}
                 width={250}
                 placeholder="Commune/localite ..."
                 onSelect={this.onSelectedItemsChange.bind(this)}
-                data={data}
                 search={true}
                 />
         <View>
+        {this.state.value}
         </View>
       </View>
             </View>
